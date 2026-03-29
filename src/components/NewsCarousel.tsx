@@ -30,15 +30,15 @@ const NewsCarousel = () => {
           className="flex items-end justify-between mb-10"
         >
           <div>
-            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2">Aktuality</p>
-            <h2 className="text-3xl md:text-4xl font-bold">AI novinky ze světa marketingu</h2>
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Aktuality</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">AI novinky ze světa marketingu</h2>
           </div>
           <div className="hidden md:flex gap-2">
-            <button onClick={() => scroll("left")} className="p-2 rounded-lg border border-border hover:bg-secondary transition-colors">
-              <ChevronLeft className="w-5 h-5" />
+            <button onClick={() => scroll("left")} className="p-2 rounded-lg border border-border hover:bg-secondary hover:border-primary/30 transition-colors">
+              <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
-            <button onClick={() => scroll("right")} className="p-2 rounded-lg border border-border hover:bg-secondary transition-colors">
-              <ChevronRight className="w-5 h-5" />
+            <button onClick={() => scroll("right")} className="p-2 rounded-lg border border-border hover:bg-secondary hover:border-primary/30 transition-colors">
+              <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
           </div>
         </motion.div>
@@ -51,12 +51,12 @@ const NewsCarousel = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="min-w-[300px] max-w-[320px] snap-start bg-gradient-card rounded-xl border border-border p-6 shadow-card hover:border-primary/30 transition-all group cursor-pointer flex-shrink-0"
+              className="min-w-[300px] max-w-[320px] snap-start bg-background rounded-xl border border-border p-6 shadow-card hover:border-primary/40 hover:shadow-glow transition-all group cursor-pointer flex-shrink-0"
             >
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-xs font-semibold bg-accent/15 text-accent px-2.5 py-1 rounded-full">{item.tag}</span>
+                <span className="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">{item.tag}</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
               <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.desc}</p>
               <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">
                 Zobrazit více <ExternalLink className="w-3.5 h-3.5" />

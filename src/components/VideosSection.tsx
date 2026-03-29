@@ -14,13 +14,8 @@ const topics = [
   { title: "Fake news & deepfakes", desc: "Jak rozpoznat a bránit se dezinformacím a manipulaci." },
 ];
 
-const colors = [
-  "from-primary/20 to-primary/5",
-  "from-accent/20 to-accent/5",
-];
-
 const VideosSection = () => (
-  <section id="temata" className="py-20">
+  <section id="temata" className="py-20 bg-secondary/40">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -29,7 +24,7 @@ const VideosSection = () => (
         className="max-w-2xl mb-14"
       >
         <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Video obsah</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">10 hlavních témat kurzu</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">10 hlavních témat kurzu</h2>
         <p className="text-muted-foreground text-lg">
           Každé téma ve video formátu. Krátce, srozumitelně, s příklady z praxe.
         </p>
@@ -43,18 +38,18 @@ const VideosSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="bg-gradient-card rounded-xl border border-border overflow-hidden shadow-card hover:border-primary/30 transition-all group cursor-pointer"
+            className="bg-background rounded-xl border border-border overflow-hidden shadow-card hover:border-primary/40 hover:shadow-glow transition-all group cursor-pointer"
           >
-            <div className={`relative aspect-video bg-gradient-to-br ${colors[i % 2]} flex items-center justify-center`}>
-              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+            <div className="relative aspect-video bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
                 <Play className="w-7 h-7 text-primary-foreground ml-1" />
               </div>
-              <span className="absolute top-3 left-3 text-xs font-bold bg-secondary/80 backdrop-blur-sm rounded-md px-2 py-1">
+              <span className="absolute top-3 left-3 text-xs font-bold bg-background/90 backdrop-blur-sm rounded-md px-2 py-1 text-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
             <div className="p-5">
-              <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{topic.title}</h3>
+              <h3 className="font-semibold text-lg mb-1 text-foreground group-hover:text-primary transition-colors">{topic.title}</h3>
               <p className="text-sm text-muted-foreground">{topic.desc}</p>
             </div>
           </motion.div>

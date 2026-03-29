@@ -1,13 +1,13 @@
-import { GraduationCap } from "lucide-react";
+import vseLogo from "@/assets/vse-logo.png";
 
 const FooterSection = () => (
-  <footer className="py-12 border-t border-border">
+  <footer className="py-12 border-t border-border bg-muted/30">
     <div className="container">
       <div className="grid md:grid-cols-3 gap-8">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            <span className="font-bold">3MG303</span>
+          <div className="flex items-center gap-3 mb-3">
+            <img src={vseLogo} alt="VŠE Praha" className="h-10 w-10 object-contain" />
+            <span className="font-bold text-foreground">3MG303</span>
           </div>
           <p className="text-sm text-muted-foreground">
             Umělá inteligence v marketingu a komunikaci firem
@@ -15,22 +15,23 @@ const FooterSection = () => (
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Navigace</h4>
+          <h4 className="font-semibold mb-3 text-foreground">Navigace</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="#obsah" className="hover:text-foreground transition-colors">O předmětu</a></li>
-            <li><a href="#prednasky" className="hover:text-foreground transition-colors">Přednášky</a></li>
-            <li><a href="#temata" className="hover:text-foreground transition-colors">Video témata</a></li>
-            <li><a href="#chatbot" className="hover:text-foreground transition-colors">AI Chatbot</a></li>
-            <li><a href="#knihy" className="hover:text-foreground transition-colors">Literatura</a></li>
+            <li><a href="#obsah" className="hover:text-primary transition-colors">O předmětu</a></li>
+            <li><a href="#prednasky" className="hover:text-primary transition-colors">Přednášky</a></li>
+            <li><a href="#temata" className="hover:text-primary transition-colors">Video témata</a></li>
+            <li><a href="#chatbot" className="hover:text-primary transition-colors">AI Chatbot</a></li>
+            <li><a href="#knihy" className="hover:text-primary transition-colors">Literatura</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Kontakt</h4>
+          <h4 className="font-semibold mb-3 text-foreground">Kontakt</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>Vysoká škola ekonomická v Praze</li>
-            <li>Fakulta managementu</li>
-            <li>vyucujici@vse.cz</li>
+            <li>Fakulta podnikohospodářská</li>
+            <li>Garant: prof. Ing. Miroslav Karlíček, Ph.D.</li>
+            <li>Vyučující: Ing. Vítězslav Klement, MBA</li>
           </ul>
         </div>
       </div>

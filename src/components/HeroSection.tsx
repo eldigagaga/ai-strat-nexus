@@ -1,51 +1,55 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import vseLogo from "@/assets/vse-logo.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-hero" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-accent/70" />
       </div>
 
-      <div className="container relative z-10 py-20">
+      <div className="container relative z-10 py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1.5 text-sm text-muted-foreground mb-6">
-            <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
-            VŠE Praha · 3MG303
+          <div className="flex items-center gap-3 mb-8">
+            <img src={vseLogo} alt="VŠE Praha" className="h-14 w-14 object-contain bg-background/90 rounded-full p-1" />
+            <div className="text-sm text-primary-foreground/80">
+              <p className="font-semibold text-primary-foreground">Vysoká škola ekonomická v Praze</p>
+              <p>FPH · 3MG303 · ZS 2025/2026</p>
+            </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-primary-foreground">
             Umělá inteligence
             <br />
-            <span className="text-gradient-accent">v marketingu</span>
+            v marketingu
             <br />
             a komunikaci firem
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-4">
+          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-4">
             Praktický průvodce využitím AI v marketingu, komunikaci a tvorbě obsahu.
           </p>
-          <p className="text-base text-muted-foreground max-w-xl mb-10">
+          <p className="text-base text-primary-foreground/70 max-w-xl mb-10">
             Naučíte se používat generativní AI, vytvářet obsah pomocí promptů a automatizovat marketingové procesy. Žádná teorie navíc – jen to, co využijete hned.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <a
               href="#obsah"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground shadow-glow hover:brightness-110 transition-all"
+              className="inline-flex items-center justify-center rounded-lg bg-background px-8 py-3.5 text-base font-semibold text-primary shadow-lg hover:bg-background/90 transition-all"
             >
               Prozkoumat obsah
             </a>
             <a
               href="#chatbot"
-              className="inline-flex items-center justify-center rounded-lg border border-accent/30 bg-accent/10 px-8 py-3.5 text-base font-semibold text-accent hover:bg-accent/20 transition-all"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-primary-foreground/30 bg-primary-foreground/10 px-8 py-3.5 text-base font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-all"
             >
               Zeptat se AI
             </a>
