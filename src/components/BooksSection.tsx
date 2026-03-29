@@ -23,7 +23,7 @@ const books = [
 ];
 
 const BooksSection = () => (
-  <section id="knihy" className="py-20 bg-secondary/30">
+  <section id="knihy" className="py-20">
     <div className="container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ const BooksSection = () => (
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Doporučená literatura</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Knihy, které vás posunou dál</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Knihy, které vás posunou dál</h2>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -43,16 +43,16 @@ const BooksSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            className="bg-gradient-card rounded-2xl border border-border shadow-card overflow-hidden hover:border-primary/30 transition-all group"
+            className="bg-background rounded-2xl border border-border shadow-card overflow-hidden hover:border-primary/40 hover:shadow-glow transition-all group"
           >
             <div className="aspect-[3/4] max-h-[320px] overflow-hidden">
-              <img src={book.image} alt={book.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={book.image} alt={book.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div className="p-6">
-              <span className="inline-block text-xs font-semibold bg-primary/15 text-primary px-3 py-1 rounded-full mb-3">
+              <span className="inline-block text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full mb-3">
                 {book.badge}
               </span>
-              <h3 className="text-xl font-bold mb-2">{book.title}</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">{book.title}</h3>
               <p className="text-sm text-muted-foreground mb-5">{book.desc}</p>
               <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 transition-all">
                 <book.ctaIcon className="w-4 h-4" />

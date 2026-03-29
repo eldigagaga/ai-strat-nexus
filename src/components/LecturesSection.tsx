@@ -21,7 +21,7 @@ const LecturesSection = () => {
   const [playing, setPlaying] = useState<number | null>(null);
 
   return (
-    <section id="prednasky" className="py-20 bg-secondary/30">
+    <section id="prednasky" className="py-20">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const LecturesSection = () => {
           className="max-w-2xl mb-14"
         >
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Audio shrnutí</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Shrnutí přednášek</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Shrnutí přednášek</h2>
           <p className="text-muted-foreground text-lg">
             Poslechněte si klíčové body z každé přednášky. Ideální na cestě, před zkouškou nebo jako rychlé opakování.
           </p>
@@ -44,7 +44,7 @@ const LecturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="flex items-center gap-4 bg-gradient-card rounded-xl border border-border p-4 shadow-card hover:border-primary/30 transition-all group"
+              className="flex items-center gap-4 bg-background rounded-xl border border-border p-4 shadow-card hover:border-primary/40 transition-all group"
             >
               <button
                 onClick={() => setPlaying(playing === i ? null : i)}
@@ -57,7 +57,7 @@ const LecturesSection = () => {
                 )}
               </button>
               <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm truncate group-hover:text-primary transition-colors">
+                <h3 className="font-semibold text-sm truncate text-foreground group-hover:text-primary transition-colors">
                   {i + 1}. {lecture.title}
                 </h3>
                 <p className="text-xs text-muted-foreground truncate">{lecture.desc}</p>
