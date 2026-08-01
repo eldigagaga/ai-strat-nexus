@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import vseLogo from "@/assets/vse-logo.png";
 
 const links = [
@@ -9,6 +10,7 @@ const links = [
   { label: "AI Avatar", href: "#avatar" },
   { label: "Chatbot", href: "#chatbot" },
   { label: "Knihy", href: "#knihy" },
+  { label: "Blog", href: "/blog", isRoute: true },
 ];
 
 const Navbar = () => {
@@ -23,11 +25,17 @@ const Navbar = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-1">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.isRoute ? (
+              <Link key={l.href} to={l.href} className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.href} href={l.href} className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
+                {l.label}
+              </a>
+            ),
+          )}
         </div>
 
         <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
@@ -38,11 +46,17 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="container py-4 space-y-1">
-            {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
-                {l.label}
-              </a>
-            ))}
+            {links.map((l) =>
+              l.isRoute ? (
+                <Link key={l.href} to={l.href} onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors rounded-lg hover:bg-secondary">
+                  {l.label}
+                </a>
+              ),
+            )}
           </div>
         </div>
       )}
