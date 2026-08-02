@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { supabase } from "@/integrations/supabase/client";
@@ -80,12 +81,25 @@ const BlogMakecom = () => {
                       <Calendar className="w-3.5 h-3.5" />
                       {new Date(post.published_at ?? post.created_at).toLocaleDateString("cs-CZ")}
                     </div>
-                    <h2 className="font-semibold text-lg mb-2 text-foreground">{post.title}</h2>
+                    <h2 className="font-semibold text-lg mb-2 text-foreground">
+                      <Link
+                        to={`/blog_makecom/${post.slug}`}
+                        className="hover:text-primary transition-colors"
+                      >
+                        {post.title}
+                      </Link>
+                    </h2>
                     {post.content && (
                       <p className="text-sm text-muted-foreground line-clamp-4 whitespace-pre-line">
                         {post.content}
                       </p>
                     )}
+                    <Link
+                      to={`/blog_makecom/${post.slug}`}
+                      className="inline-flex mt-4 text-sm font-medium text-primary hover:underline"
+                    >
+                      Číst celý článek
+                    </Link>
                   </div>
                 </motion.article>
               ))}
